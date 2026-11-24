@@ -1,7 +1,7 @@
 """Discount strategies used by the checkout use case."""
 
 from dataclasses import dataclass
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import ROUND_HALF_UP, Decimal
 
 from maintainable_shop.domain.exceptions import DomainError
 from maintainable_shop.domain.money import Money
@@ -32,7 +32,5 @@ class PercentageDiscount:
 
     def discount_for(self, order: Order) -> Money:
         subtotal = order.subtotal
-        amount = (subtotal.amount * self.rate).quantize(
-            _CENT, rounding=ROUND_HALF_UP
-        )
+        amount = (subtotal.amount * self.rate).quantize(_CENT, rounding=ROUND_HALF_UP)
         return Money(amount, subtotal.currency)

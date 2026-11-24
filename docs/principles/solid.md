@@ -19,6 +19,7 @@ A discount policy can be represented by a small contract:
 ```python
 from typing import Protocol
 
+
 class DiscountPolicy(Protocol):
     def discount_for(self, subtotal: Money) -> Money: ...
 ```

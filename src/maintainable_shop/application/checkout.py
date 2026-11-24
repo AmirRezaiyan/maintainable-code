@@ -58,9 +58,7 @@ class CheckoutService:
             order.customer_id, payable_total
         )
         self._repository.save(order, payable_total, payment_reference)
-        self._notifier.send_order_confirmation(
-            order, payable_total, payment_reference
-        )
+        self._notifier.send_order_confirmation(order, payable_total, payment_reference)
 
         return CheckoutResult(
             order_id=order.order_id,

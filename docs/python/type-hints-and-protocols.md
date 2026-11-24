@@ -15,6 +15,7 @@ Prefer a domain type over a vague primitive when the value has rules of its own.
 ```python
 from typing import Protocol
 
+
 class PaymentGateway(Protocol):
     def charge(self, customer_id: str, amount: Money) -> str: ...
 ```

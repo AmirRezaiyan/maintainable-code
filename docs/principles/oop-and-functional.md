@@ -10,6 +10,7 @@ OOP groups data and behavior into objects. It is useful when the domain contains
 from dataclasses import dataclass
 from decimal import Decimal
 
+
 @dataclass(frozen=True)
 class OrderLine:
     unit_price: Decimal

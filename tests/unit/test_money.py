@@ -41,9 +41,7 @@ def test_money_cannot_be_subtracted_below_zero() -> None:
 
 
 def test_money_multiply_requires_non_negative_integer() -> None:
-    assert Money(Decimal("4.20"), "USD").multiply(3) == Money(
-        Decimal("12.60"), "USD"
-    )
+    assert Money(Decimal("4.20"), "USD").multiply(3) == Money(Decimal("12.60"), "USD")
     with pytest.raises(DomainError):
         Money(Decimal("4.20"), "USD").multiply(-1)
 

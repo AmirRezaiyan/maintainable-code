@@ -76,9 +76,7 @@ def test_checkout_rejects_discount_larger_than_subtotal(make_order) -> None:
     repository = InMemoryOrderRepository()
     payment = FakePaymentGateway()
     notifier = RecordingNotifier()
-    service = CheckoutService(
-        repository, payment, notifier, ExcessiveDiscountPolicy()
-    )
+    service = CheckoutService(repository, payment, notifier, ExcessiveDiscountPolicy())
 
     with pytest.raises(DomainError, match="cannot exceed"):
         service.place_order(make_order())
